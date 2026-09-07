@@ -1,0 +1,1642 @@
+[gd_scene format=4 uid="uid://cp676a4m2a0sn"]
+
+[ext_resource type="Script" uid="uid://demuw3ml78jt0" path="res://gdscripts/player.gd" id="1_qchbg"]
+[ext_resource type="Texture2D" uid="uid://ds4ohxjq83mof" path="res://sprites/Uncle Ayo.png" id="2_kddj0"]
+[ext_resource type="Script" uid="uid://wr0i1g0q0yq6" path="res://gdscripts/camera_2d.gd" id="3_q8s1k"]
+[ext_resource type="AudioStream" uid="uid://c4v0bep2m4v7f" path="res://audios/Jump.wav" id="3_wm6m6"]
+[ext_resource type="Texture2D" uid="uid://c1ga7gb3j8rme" path="res://sprites/Background/5 - Sky.png" id="4_rlvb3"]
+[ext_resource type="Script" uid="uid://c5rnk1ksr3jp8" path="res://gdscripts/road.gd" id="5_k63md"]
+[ext_resource type="Texture2D" uid="uid://dw28p6evt8nfp" path="res://sprites/Terrain (64 x 64).png" id="6_fn4oh"]
+[ext_resource type="Texture2D" uid="uid://corjlk3pwj18q" path="res://sprites/Misc/House (480 x 384).png" id="6_j30dx"]
+[ext_resource type="Script" uid="uid://dgafucrkr7mgi" path="res://gdscripts/level_manager.gd" id="6_o6wi6"]
+[ext_resource type="Texture2D" uid="uid://dhfpl7xoydbui" path="res://sprites/Grassland_entities (64 x 64).png" id="7_2ilni"]
+[ext_resource type="Texture2D" uid="uid://bj2bc0by1ln5w" path="res://sprites/Misc/Flowers (64 x 64).png" id="9_d3jfy"]
+[ext_resource type="Texture2D" uid="uid://cgjm7u4bpbv3t" path="res://sprites/Background/1 - Forest.png" id="10_j30dx"]
+[ext_resource type="Texture2D" uid="uid://wy7hwumduh0r" path="res://sprites/Background/2 - Hills.png" id="11_2ilni"]
+[ext_resource type="Texture2D" uid="uid://bdq1l5movjvmy" path="res://sprites/Background/3 - Lower Clouds.png" id="12_d3jfy"]
+[ext_resource type="Texture2D" uid="uid://dqutxjxktjote" path="res://sprites/Background/4 - Higher Clouds.png" id="13_q6c7b"]
+[ext_resource type="PackedScene" uid="uid://gm7ykwcld8m" path="res://scenes/road_1.tscn" id="16_wm6m6"]
+[ext_resource type="PackedScene" uid="uid://c0frwwevvpq45" path="res://scenes/road_2.tscn" id="17_ocmmj"]
+[ext_resource type="PackedScene" uid="uid://canuwrrcvnlc5" path="res://scenes/road_3.tscn" id="18_vwj6b"]
+[ext_resource type="PackedScene" uid="uid://bxkwwe5bgj5cp" path="res://scenes/road_4.tscn" id="19_62tve"]
+[ext_resource type="PackedScene" uid="uid://c7sepkfl0awku" path="res://scenes/main_ui.tscn" id="19_q6c7b"]
+[ext_resource type="AudioStream" uid="uid://bejtf7yt101om" path="res://audios/Bike Rides - The Green Orbs.mp3" id="21_ocmmj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m4fnj"]
+radius = 37.0
+height = 130.0
+
+[sub_resource type="Animation" id="Animation_hddm4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/pelvis:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/pelvis/spine:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -21)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/pelvis/spine/right_arm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/pelvis/spine/left_arm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/pelvis/right_leg:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/pelvis/left_leg:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Skeleton2D/pelvis:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Skeleton2D/pelvis/spine:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Skeleton2D/pelvis/spine/right_arm:rotation")
+tracks/8/interp = 4
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Skeleton2D/pelvis/spine/left_arm:rotation")
+tracks/9/interp = 4
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Skeleton2D/pelvis/right_leg:rotation")
+tracks/10/interp = 4
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Skeleton2D/pelvis/left_leg:rotation")
+tracks/11/interp = 4
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CollisionShape2D:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -65)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CollisionShape2D:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CollisionShape2D:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qchbg"]
+resource_name = "double_jump"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/pelvis:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -13)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/pelvis/spine:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -21)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/pelvis/spine/right_arm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/pelvis/spine/left_arm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/pelvis/right_leg:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/pelvis/left_leg:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Skeleton2D/pelvis:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Skeleton2D/pelvis/spine:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Skeleton2D/pelvis/spine/right_arm:rotation")
+tracks/8/interp = 4
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.9977738]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Skeleton2D/pelvis/spine/left_arm:rotation")
+tracks/9/interp = 4
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.9977738]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Skeleton2D/pelvis/right_leg:rotation")
+tracks/10/interp = 4
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5734909]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Skeleton2D/pelvis/left_leg:rotation")
+tracks/11/interp = 4
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5734909]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CollisionShape2D:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -55.000008)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CollisionShape2D:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CollisionShape2D:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.845)]
+}
+
+[sub_resource type="Animation" id="Animation_kddj0"]
+resource_name = "fall"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/pelvis:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20, -32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/pelvis/spine:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -21)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/pelvis/spine/right_arm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/pelvis/spine/left_arm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/pelvis/right_leg:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/pelvis/left_leg:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Skeleton2D/pelvis:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.48702252]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Skeleton2D/pelvis/spine:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Skeleton2D/pelvis/spine/right_arm:rotation")
+tracks/8/interp = 4
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.2607468]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Skeleton2D/pelvis/spine/left_arm:rotation")
+tracks/9/interp = 4
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.2607468]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Skeleton2D/pelvis/right_leg:rotation")
+tracks/10/interp = 4
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.85373276]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Skeleton2D/pelvis/left_leg:rotation")
+tracks/11/interp = 4
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.85373276]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CollisionShape2D:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -61.000008)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CollisionShape2D:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CollisionShape2D:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.945)]
+}
+
+[sub_resource type="Animation" id="Animation_q8s1k"]
+resource_name = "jump_up"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/pelvis:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -30)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/pelvis/spine:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -21)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/pelvis/spine/right_arm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/pelvis/spine/left_arm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/pelvis/right_leg:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/pelvis/left_leg:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Skeleton2D/pelvis:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Skeleton2D/pelvis/spine:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.28704932]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Skeleton2D/pelvis/spine/right_arm:rotation")
+tracks/8/interp = 4
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.3429883]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Skeleton2D/pelvis/spine/left_arm:rotation")
+tracks/9/interp = 4
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.3429883]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Skeleton2D/pelvis/right_leg:rotation")
+tracks/10/interp = 4
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5087136]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Skeleton2D/pelvis/left_leg:rotation")
+tracks/11/interp = 4
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5087136]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CollisionShape2D:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -64)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CollisionShape2D:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CollisionShape2D:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.985)]
+}
+
+[sub_resource type="Animation" id="Animation_mm0a5"]
+resource_name = "run"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/pelvis:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, -42), Vector2(0, -32), Vector2(-1, -42), Vector2(0, -32), Vector2(-1, -42)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/pelvis/spine:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -21)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/pelvis/spine/right_arm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/pelvis/spine/left_arm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/pelvis/right_leg:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/pelvis/left_leg:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Skeleton2D/pelvis:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Skeleton2D/pelvis/spine:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Skeleton2D/pelvis/spine/right_arm:rotation")
+tracks/8/interp = 4
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.1465495, -1.5184364, 1.1465495]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Skeleton2D/pelvis/spine/left_arm:rotation")
+tracks/9/interp = 4
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.5180004, 1.1466813, -1.5180004]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Skeleton2D/pelvis/right_leg:rotation")
+tracks/10/interp = 4
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.035895, 1.4974926, -1.035895]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Skeleton2D/pelvis/left_leg:rotation")
+tracks/11/interp = 4
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.498137, -1.0367255, 1.498137]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CollisionShape2D:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -65)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CollisionShape2D:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CollisionShape2D:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o6wi6"]
+resource_name = "slide"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/pelvis:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, -32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/pelvis/spine:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -21)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/pelvis/spine/right_arm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/pelvis/spine/left_arm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/pelvis/right_leg:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/pelvis/left_leg:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Skeleton2D/pelvis:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.3980597]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Skeleton2D/pelvis/spine:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Skeleton2D/pelvis/spine/right_arm:rotation")
+tracks/8/interp = 4
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.9875274]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Skeleton2D/pelvis/spine/left_arm:rotation")
+tracks/9/interp = 4
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.9875274]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Skeleton2D/pelvis/right_leg:rotation")
+tracks/10/interp = 4
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.6571761]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Skeleton2D/pelvis/left_leg:rotation")
+tracks/11/interp = 4
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.6571761]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CollisionShape2D:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-18.64, -37)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CollisionShape2D:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5707964]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CollisionShape2D:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.815)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kddj0"]
+_data = {
+&"RESET": SubResource("Animation_hddm4"),
+&"double_jump": SubResource("Animation_qchbg"),
+&"fall": SubResource("Animation_kddj0"),
+&"jump_up": SubResource("Animation_q8s1k"),
+&"run": SubResource("Animation_mm0a5"),
+&"slide": SubResource("Animation_o6wi6")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kddj0"]
+animation = &"double_jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q8s1k"]
+animation = &"fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mm0a5"]
+animation = &"jump_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o6wi6"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_emj6c"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mrac1"]
+graph_offset = Vector2(98, 9.333333)
+nodes/output/position = Vector2(813.3333, 146.66667)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_o6wi6")
+nodes/Animation/position = Vector2(400, 146.66667)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_emj6c")
+nodes/TimeScale/position = Vector2(613.3333, 146.66667)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2q4k0"]
+animation = &"slide"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x1amm"]
+xfade_time = 0.05
+advance_mode = 2
+advance_condition = &"is_slide"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2bfhc"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_osidk"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"is_run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rlvb3"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k63md"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "velocity.y >= 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fn4oh"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "is_on_ground"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j30dx"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "velocity.y > 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ilni"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d3jfy"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "velocity.y >= 0"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_m4fnj"]
+states/End/position = Vector2(718, 99.97531)
+states/double_jump/node = SubResource("AnimationNodeAnimation_kddj0")
+states/double_jump/position = Vector2(377.33334, -125.33332)
+states/fall/node = SubResource("AnimationNodeAnimation_q8s1k")
+states/fall/position = Vector2(541, -14.037036)
+states/jump_up/node = SubResource("AnimationNodeAnimation_mm0a5")
+states/jump_up/position = Vector2(240.00002, -14.555554)
+states/run/node = SubResource("AnimationNodeBlendTree_mrac1")
+states/run/position = Vector2(377.33334, 100.07407)
+states/slide/node = SubResource("AnimationNodeAnimation_2q4k0")
+states/slide/position = Vector2(572.6666, 100)
+transitions = ["run", "slide", SubResource("AnimationNodeStateMachineTransition_x1amm"), "Start", "run", SubResource("AnimationNodeStateMachineTransition_2bfhc"), "slide", "run", SubResource("AnimationNodeStateMachineTransition_osidk"), "run", "jump_up", SubResource("AnimationNodeStateMachineTransition_rlvb3"), "jump_up", "fall", SubResource("AnimationNodeStateMachineTransition_k63md"), "fall", "run", SubResource("AnimationNodeStateMachineTransition_fn4oh"), "run", "fall", SubResource("AnimationNodeStateMachineTransition_j30dx"), "jump_up", "double_jump", SubResource("AnimationNodeStateMachineTransition_2ilni"), "double_jump", "fall", SubResource("AnimationNodeStateMachineTransition_d3jfy")]
+graph_offset = Vector2(-154, -173)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_j30dx"]
+tile_data = PackedInt32Array(0, 524288, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_2ilni"]
+tile_data = PackedInt32Array(0, 589825, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q6c7b"]
+texture = ExtResource("6_j30dx")
+texture_region_size = Vector2i(64, 64)
+8:0/size_in_atlas = Vector2i(7, 6)
+8:0/0 = 0
+8:0/0/texture_origin = Vector2i(0, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x2tju"]
+texture = ExtResource("7_2ilni")
+texture_region_size = Vector2i(64, 64)
+9:1/size_in_atlas = Vector2i(3, 3)
+9:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_22d8g"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_q6c7b")
+sources/1 = SubResource("TileSetAtlasSource_x2tju")
+pattern_0 = SubResource("TileMapPattern_j30dx")
+pattern_1 = SubResource("TileMapPattern_2ilni")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q8s1k"]
+texture = ExtResource("6_fn4oh")
+texture_region_size = Vector2i(64, 64)
+3:1/0 = 0
+3:1/0/terrain_set = 0
+3:1/0/terrain = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 0, 32, 0, 32, -32)
+3:1/0/terrains_peering_bit/right_side = 0
+3:1/0/terrains_peering_bit/bottom_right_corner = 0
+3:1/0/terrains_peering_bit/bottom_side = 0
+4:1/0 = 0
+4:1/0/terrain_set = 0
+4:1/0/terrain = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 0, 32, 0, 32, -32)
+4:1/0/terrains_peering_bit/right_side = 0
+4:1/0/terrains_peering_bit/bottom_right_corner = 0
+4:1/0/terrains_peering_bit/bottom_side = 0
+4:1/0/terrains_peering_bit/bottom_left_corner = 0
+4:1/0/terrains_peering_bit/left_side = 0
+5:1/0 = 0
+5:1/0/terrain_set = 0
+5:1/0/terrain = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 0, 32, 0, 32, -32)
+5:1/0/terrains_peering_bit/bottom_side = 0
+5:1/0/terrains_peering_bit/bottom_left_corner = 0
+5:1/0/terrains_peering_bit/left_side = 0
+3:2/0 = 0
+3:2/0/terrain_set = 0
+3:2/0/terrain = 0
+3:2/0/terrains_peering_bit/right_side = 0
+3:2/0/terrains_peering_bit/bottom_right_corner = 0
+3:2/0/terrains_peering_bit/bottom_side = 0
+3:2/0/terrains_peering_bit/top_side = 0
+3:2/0/terrains_peering_bit/top_right_corner = 0
+4:2/0 = 0
+4:2/0/terrain_set = 0
+4:2/0/terrain = 0
+4:2/0/terrains_peering_bit/right_side = 0
+4:2/0/terrains_peering_bit/bottom_right_corner = 0
+4:2/0/terrains_peering_bit/bottom_side = 0
+4:2/0/terrains_peering_bit/bottom_left_corner = 0
+4:2/0/terrains_peering_bit/left_side = 0
+4:2/0/terrains_peering_bit/top_left_corner = 0
+4:2/0/terrains_peering_bit/top_side = 0
+4:2/0/terrains_peering_bit/top_right_corner = 0
+5:2/0 = 0
+5:2/0/terrain_set = 0
+5:2/0/terrain = 0
+5:2/0/terrains_peering_bit/bottom_side = 0
+5:2/0/terrains_peering_bit/bottom_left_corner = 0
+5:2/0/terrains_peering_bit/left_side = 0
+5:2/0/terrains_peering_bit/top_left_corner = 0
+5:2/0/terrains_peering_bit/top_side = 0
+3:3/0 = 0
+3:3/0/terrain_set = 0
+3:3/0/terrain = 0
+3:3/0/terrains_peering_bit/right_side = 0
+3:3/0/terrains_peering_bit/bottom_right_corner = 0
+3:3/0/terrains_peering_bit/bottom_side = 0
+3:3/0/terrains_peering_bit/bottom_left_corner = 0
+3:3/0/terrains_peering_bit/left_side = 0
+3:3/0/terrains_peering_bit/top_side = 0
+3:3/0/terrains_peering_bit/top_right_corner = 0
+3:4/0 = 0
+3:4/0/terrain_set = 0
+3:4/0/terrain = 0
+3:4/0/terrains_peering_bit/right_side = 0
+3:4/0/terrains_peering_bit/bottom_right_corner = 0
+3:4/0/terrains_peering_bit/bottom_side = 0
+3:4/0/terrains_peering_bit/left_side = 0
+3:4/0/terrains_peering_bit/top_left_corner = 0
+3:4/0/terrains_peering_bit/top_side = 0
+3:4/0/terrains_peering_bit/top_right_corner = 0
+5:3/0 = 0
+5:3/0/terrain_set = 0
+5:3/0/terrain = 0
+5:3/0/terrains_peering_bit/right_side = 0
+5:3/0/terrains_peering_bit/bottom_right_corner = 0
+5:3/0/terrains_peering_bit/bottom_side = 0
+5:3/0/terrains_peering_bit/bottom_left_corner = 0
+5:3/0/terrains_peering_bit/left_side = 0
+5:3/0/terrains_peering_bit/top_left_corner = 0
+5:3/0/terrains_peering_bit/top_side = 0
+5:4/0 = 0
+5:4/0/terrain_set = 0
+5:4/0/terrain = 0
+5:4/0/terrains_peering_bit/right_side = 0
+5:4/0/terrains_peering_bit/bottom_side = 0
+5:4/0/terrains_peering_bit/bottom_left_corner = 0
+5:4/0/terrains_peering_bit/left_side = 0
+5:4/0/terrains_peering_bit/top_left_corner = 0
+5:4/0/terrains_peering_bit/top_side = 0
+5:4/0/terrains_peering_bit/top_right_corner = 0
+3:6/0 = 0
+3:6/0/terrain_set = 0
+3:6/0/terrain = 0
+3:6/0/terrains_peering_bit/right_side = 0
+3:6/0/terrains_peering_bit/top_side = 0
+3:6/0/terrains_peering_bit/top_right_corner = 0
+4:6/0 = 0
+4:6/0/terrain_set = 0
+4:6/0/terrain = 0
+4:6/0/terrains_peering_bit/right_side = 0
+4:6/0/terrains_peering_bit/left_side = 0
+4:6/0/terrains_peering_bit/top_left_corner = 0
+4:6/0/terrains_peering_bit/top_side = 0
+4:6/0/terrains_peering_bit/top_right_corner = 0
+5:6/0 = 0
+5:6/0/terrain_set = 0
+5:6/0/terrain = 0
+5:6/0/terrains_peering_bit/left_side = 0
+5:6/0/terrains_peering_bit/top_left_corner = 0
+5:6/0/terrains_peering_bit/top_side = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pfam"]
+texture = ExtResource("7_2ilni")
+texture_region_size = Vector2i(64, 64)
+9:5/0 = 0
+10:5/0 = 0
+12:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ilni"]
+texture = ExtResource("9_d3jfy")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_m4fnj"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 3
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.729856, 0, 0.12425769, 1)
+sources/0 = SubResource("TileSetAtlasSource_q8s1k")
+sources/1 = SubResource("TileSetAtlasSource_8pfam")
+sources/2 = SubResource("TileSetAtlasSource_2ilni")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wm6m6"]
+texture = ExtResource("9_d3jfy")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0vh62"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_wm6m6")
+
+[node name="playground" type="Node2D" unique_id=1033434926]
+metadata/_edit_vertical_guides_ = [1152.0, 0.0]
+metadata/_edit_horizontal_guides_ = [648.0, 0.0]
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=639970646]
+position = Vector2(576, -183.00002)
+scale = Vector2(0.9541595, 0.9541595)
+floor_snap_length = 2.0
+script = ExtResource("1_qchbg")
+run_speed = 430.0
+
+[node name="body" type="Polygon2D" parent="player" unique_id=1727558552]
+position = Vector2(-1, -63)
+offset = Vector2(-39, -74)
+texture = ExtResource("2_kddj0")
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(12, 13, 26, 6, 44, 4, 59, 6, 70, 14, 77, 29, 78, 47, 80, 59, 80.410034, 70.62703, 80, 81, 80, 88, 81, 95, 74, 108, 59, 118, 40, 121, 18, 117, 5, 109, -2, 101, -3.168293, 87.77554, -3, 80, -3.7678223, 73.14703, -3.8894272, 53.83942, -3.4144897, 42.975292, 0, 26, 38.228912, 73.426445, 38.80925, 83.43738, 38.66417, 94.31883, 58.540962, 80.39057, 58.540962, 87.20962, 61.152504, 94.31883, 15.595482, 91.272026, 14.144623, 72.55592, 14.434792, 81.261086)
+uv = PackedVector2Array(12, 13, 26, 6, 44, 4, 59, 6, 70, 14, 77, 29, 78, 47, 80, 59, 80.410034, 70.62703, 80, 81, 80, 88, 81, 95, 74, 108, 59, 118, 40, 121, 18, 117, 5, 109, -2, 101, -3.168293, 87.77554, -3, 80, -3.7678223, 73.14703, -3.8894272, 53.83942, -3.4144897, 42.975292, 0, 26, 38.228912, 73.426445, 38.80925, 83.43738, 38.66417, 94.31883, 58.540962, 80.39057, 58.540962, 87.20962, 61.152504, 94.31883, 15.595482, 91.272026, 14.144623, 72.55592, 14.434792, 81.261086)
+polygons = [PackedInt32Array(9, 27, 24, 31, 20, 21, 22, 23, 0, 1, 2, 3, 4, 5, 6, 7, 8), PackedInt32Array(9, 10, 28, 25, 32, 19, 20, 31, 24, 27), PackedInt32Array(10, 11, 29, 26, 30, 18, 19, 32, 25, 28), PackedInt32Array(11, 12, 13, 14, 15, 16, 17, 18, 30, 26, 29)]
+bones = ["pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0.58000004, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.58000004, 0, 0, 0, 0.58000004, 1, 1, 0.58000004, 1, 1, 1, 0.58000004, 1), "pelvis/spine", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.58000004, 0, 0, 0, 0, 0, 0, 0.58000004, 1, 1, 1, 1, 1, 1, 0, 0.58000004, 1, 1, 0.58000004, 0.58000004, 1, 1)]
+internal_vertex_count = 9
+
+[node name="right_arm" type="Sprite2D" parent="player/body" unique_id=1848497730]
+z_index = 2
+position = Vector2(1.5167847, 1.1669769)
+rotation = -1.0852187
+scale = Vector2(0.99999505, 0.99999505)
+texture = ExtResource("2_kddj0")
+offset = Vector2(1, 23)
+region_enabled = true
+region_rect = Rect2(79, 8, 23, 62)
+
+[node name="left_arm" type="Sprite2D" parent="player/body" unique_id=2045818278]
+z_index = -2
+position = Vector2(1.5167847, 1.1669769)
+rotation = 0.713513
+scale = Vector2(0.9999954, 0.9999954)
+texture = ExtResource("2_kddj0")
+offset = Vector2(1, 23)
+region_enabled = true
+region_rect = Rect2(104, 8, 22, 62)
+
+[node name="right_leg" type="Sprite2D" parent="player/body" unique_id=1288813184]
+z_index = 1
+position = Vector2(2.5167847, 28.166977)
+rotation = 1.0856673
+scale = Vector2(0.9999946, 0.9999946)
+texture = ExtResource("2_kddj0")
+offset = Vector2(9, 16)
+region_enabled = true
+region_rect = Rect2(84, 80, 38, 32)
+
+[node name="left_leg" type="Sprite2D" parent="player/body" unique_id=199281392]
+z_index = -1
+position = Vector2(2.5167847, 28.166977)
+rotation = -0.6246603
+scale = Vector2(0.99999595, 0.99999595)
+texture = ExtResource("2_kddj0")
+offset = Vector2(9, 16)
+region_enabled = true
+region_rect = Rect2(84, 80, 38, 32)
+
+[node name="Skeleton2D" type="Skeleton2D" parent="player" unique_id=1475719448]
+position = Vector2(2, 0)
+
+[node name="pelvis" type="Bone2D" parent="player/Skeleton2D" unique_id=1125604956]
+position = Vector2(0, -32)
+rest = Transform2D(1, 0, 0, 1, 0, -32)
+editor_settings/show_bone_gizmo = false
+
+[node name="spine" type="Bone2D" parent="player/Skeleton2D/pelvis" unique_id=1843096190]
+position = Vector2(0, -21)
+rest = Transform2D(1, 0, 0, 1, 0, -21)
+editor_settings/show_bone_gizmo = false
+
+[node name="right_arm" type="Bone2D" parent="player/Skeleton2D/pelvis/spine" unique_id=804090152]
+position = Vector2(-1, -4)
+scale = Vector2(0.9999951, 0.9999951)
+rest = Transform2D(1, 0, 0, 1, -1, -4)
+auto_calculate_length_and_angle = false
+length = 45.912
+bone_angle = 85.78897
+editor_settings/show_bone_gizmo = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="player/Skeleton2D/pelvis/spine/right_arm" unique_id=2115236177]
+remote_path = NodePath("../../../../../body/right_arm")
+
+[node name="left_arm" type="Bone2D" parent="player/Skeleton2D/pelvis/spine" unique_id=1389665759]
+position = Vector2(-1, -4)
+scale = Vector2(0.99999547, 0.99999547)
+rest = Transform2D(1, 0, 0, 1, -1, -4)
+auto_calculate_length_and_angle = false
+length = 45.912
+bone_angle = 85.78897
+editor_settings/show_bone_gizmo = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="player/Skeleton2D/pelvis/spine/left_arm" unique_id=1548697784]
+remote_path = NodePath("../../../../../body/left_arm")
+
+[node name="right_leg" type="Bone2D" parent="player/Skeleton2D/pelvis" unique_id=931973315]
+position = Vector2(0, 2)
+scale = Vector2(0.9999946, 0.9999946)
+rest = Transform2D(1, 0, 0, 1, 0, 2)
+auto_calculate_length_and_angle = false
+length = 24.93
+bone_angle = 79.99997
+editor_settings/show_bone_gizmo = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="player/Skeleton2D/pelvis/right_leg" unique_id=1781737560]
+remote_path = NodePath("../../../../body/right_leg")
+
+[node name="left_leg" type="Bone2D" parent="player/Skeleton2D/pelvis" unique_id=1137669325]
+position = Vector2(0, 2)
+scale = Vector2(0.999996, 0.999996)
+rest = Transform2D(1, 0, 0, 1, 0, 2)
+auto_calculate_length_and_angle = false
+length = 24.93
+bone_angle = 79.99997
+editor_settings/show_bone_gizmo = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="player/Skeleton2D/pelvis/left_leg" unique_id=788528315]
+remote_path = NodePath("../../../../body/left_leg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=408894118]
+position = Vector2(0, -65)
+shape = SubResource("CapsuleShape2D_m4fnj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player" unique_id=616423235]
+libraries/ = SubResource("AnimationLibrary_kddj0")
+speed_scale = 2.0
+
+[node name="RayCast2D" type="RayCast2D" parent="player" unique_id=1088531846]
+target_position = Vector2(0, 6)
+collision_mask = 3
+
+[node name="AnimationTree" type="AnimationTree" parent="player" unique_id=640203941]
+tree_root = SubResource("AnimationNodeStateMachine_m4fnj")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_run = false
+parameters/conditions/is_slide = false
+parameters/run/TimeScale/scale = 2.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="player" unique_id=824309367]
+position = Vector2(0, -154.06229)
+
+[node name="jump" type="AudioStreamPlayer" parent="player" unique_id=1633636041]
+stream = ExtResource("3_wm6m6")
+bus = &"AFX"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=258538564 node_paths=PackedStringArray("player")]
+position = Vector2(767, -384)
+scale = Vector2(0.9999999, 0.9999999)
+editor_draw_drag_margin = true
+script = ExtResource("3_q8s1k")
+player = NodePath("../player")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D" unique_id=1029622078]
+z_index = -100
+position = Vector2(-64.000015, 0)
+scale = Vector2(1.2222223, 0.92307705)
+texture = ExtResource("4_rlvb3")
+
+[node name="road" type="Node2D" parent="." unique_id=505774825]
+position = Vector2(0, -183)
+script = ExtResource("5_k63md")
+
+[node name="bg" type="TileMapLayer" parent="road" unique_id=1730072435]
+z_index = -10
+tile_map_data = PackedByteArray("AAAQAP7/AQAJAAEAAAALAP7/AQAJAAEAAAAGAP3/AAAIAAAAAAA=")
+tile_set = SubResource("TileSet_22d8g")
+
+[node name="main" type="TileMapLayer" parent="road" unique_id=451287724]
+z_index = -5
+tile_map_data = PackedByteArray("AAAVAAEAAAAFAAIAAAAVAAAAAAAFAAEAAAAUAAEAAAAEAAIAAAAUAAAAAAAEAAEAAAATAAEAAAAEAAIAAAATAAAAAAAEAAEAAAASAAEAAAAEAAIAAAASAAAAAAAEAAEAAAARAAEAAAAEAAIAAAARAAAAAAAEAAEAAAAQAAEAAAAEAAIAAAAQAAAAAAAEAAEAAAAPAAEAAAAEAAIAAAAPAAAAAAAEAAEAAAAOAAEAAAAEAAIAAAAOAAAAAAAEAAEAAAANAAEAAAAEAAIAAAANAAAAAAAEAAEAAAAMAAEAAAAEAAIAAAAMAAAAAAAEAAEAAAALAAEAAAAEAAIAAAALAAAAAAAEAAEAAAAKAAEAAAAEAAIAAAAKAAAAAAAEAAEAAAAJAAEAAAAEAAIAAAAJAAAAAAAEAAEAAAAIAAEAAAAEAAIAAAAIAAAAAAAEAAEAAAAHAAEAAAAEAAIAAAAHAAAAAAAEAAEAAAAGAAEAAAAEAAIAAAAGAAAAAAAEAAEAAAAFAAEAAAAEAAIAAAAFAAAAAAAEAAEAAAAEAAEAAAAEAAIAAAAEAAAAAAAEAAEAAAAEAAIAAAAEAAYAAAAFAAIAAAAEAAYAAAAGAAIAAAAEAAYAAAAHAAIAAAAEAAYAAAAIAAIAAAAEAAYAAAAJAAIAAAAEAAYAAAAKAAIAAAAEAAYAAAALAAIAAAAEAAYAAAAMAAIAAAAEAAYAAAANAAIAAAAEAAYAAAAOAAIAAAAEAAYAAAAPAAIAAAAEAAYAAAAQAAIAAAAEAAYAAAARAAIAAAAEAAYAAAASAAIAAAAEAAYAAAATAAIAAAAEAAYAAAAUAAIAAAAEAAYAAAAVAAIAAAAFAAYAAAACAAAAAAAEAAEAAAACAAEAAAAEAAIAAAADAAEAAAAEAAIAAAADAAIAAAAEAAYAAAACAAIAAAAEAAYAAAABAAIAAAAEAAYAAAABAAEAAAAEAAIAAAABAAAAAAAEAAEAAAAAAAIAAAADAAYAAAAAAAEAAAADAAIAAAAAAAAAAAADAAEAAAADAAAAAAAEAAEAAAAGAP//AQAKAAUAAAAHAP//AQAKAAUAAAAIAP//AQAKAAUAAAAJAP//AQAKAAUAAAAKAP//AQAMAAUAAAACAP//AQAJAAUAAAADAP//AQAKAAUAAAALAP//AgABAAAAAAAMAP//AgADAAAAAAAPAP//AgAAAAAAAAARAP//AgABAAAAAAAUAP//AgADAAAAAAA=")
+tile_set = SubResource("TileSet_m4fnj")
+
+[node name="fg" type="TileMapLayer" parent="road" unique_id=1183516716]
+z_index = 10
+tile_map_data = PackedByteArray("AAAGAP//AAAAAAAAAAACAP//AAABAAAAAAADAP//AAACAAAAAAAHAP//AAACAAAAAAAJAP//AAADAAAAAAALAP//AAAAAAAAAAAQAP//AAACAAAAAAA=")
+tile_set = SubResource("TileSet_0vh62")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="road" unique_id=2140713507]
+position = Vector2(1408, 0)
+
+[node name="Parallax Backgrounds" type="Node2D" parent="." unique_id=794610049]
+position = Vector2(0, -183)
+
+[node name="Forest" type="Parallax2D" parent="Parallax Backgrounds" unique_id=994544660]
+z_index = -51
+scroll_scale = Vector2(0.85, 1)
+scroll_offset = Vector2(0, -128)
+repeat_size = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax Backgrounds/Forest" unique_id=185602483]
+texture = ExtResource("10_j30dx")
+centered = false
+
+[node name="Hills" type="Parallax2D" parent="Parallax Backgrounds" unique_id=1475734853]
+z_index = -52
+scroll_scale = Vector2(0.5, 1)
+scroll_offset = Vector2(0, -175)
+repeat_size = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax Backgrounds/Hills" unique_id=1518990498]
+texture = ExtResource("11_2ilni")
+centered = false
+
+[node name="Lower Clouds" type="Parallax2D" parent="Parallax Backgrounds" unique_id=386297777]
+z_index = -53
+scroll_scale = Vector2(0.25, 1)
+scroll_offset = Vector2(0, -277)
+repeat_size = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax Backgrounds/Lower Clouds" unique_id=1865676398]
+texture = ExtResource("12_d3jfy")
+centered = false
+
+[node name="Higher Clouds" type="Parallax2D" parent="Parallax Backgrounds" unique_id=1556349809]
+z_index = -53
+scroll_scale = Vector2(0.1, 1)
+scroll_offset = Vector2(0, -623)
+repeat_size = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax Backgrounds/Higher Clouds" unique_id=329488705]
+texture = ExtResource("13_q6c7b")
+centered = false
+
+[node name="level_manager" type="Node" parent="." unique_id=1036374318]
+script = ExtResource("6_o6wi6")
+road_scenes = Array[PackedScene]([ExtResource("16_wm6m6"), ExtResource("17_ocmmj"), ExtResource("18_vwj6b"), ExtResource("19_62tve")])
+
+[node name="CanvasLayer" parent="." unique_id=1696235956 instance=ExtResource("19_q6c7b")]
+
+[node name="bg" type="AudioStreamPlayer" parent="." unique_id=839597544]
+process_mode = 3
+stream = ExtResource("21_ocmmj")
+autoplay = true
+bus = &"Music"
+parameters/looping = false
+
+[connection signal="screen_exited" from="player/VisibleOnScreenNotifier2D" to="player" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_entered" from="road/VisibleOnScreenNotifier2D" to="road" method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="road/VisibleOnScreenNotifier2D" to="road" method="_on_visible_on_screen_notifier_2d_screen_exited"]

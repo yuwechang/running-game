@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dw2cpniqymsde"]
+
+[ext_resource type="Texture2D" uid="uid://cmrpimjldb7c4" path="res://sprites/Misc/Blocks (64 x 64).png" id="1_03bv8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4fnj"]
+size = Vector2(64, 64)
+
+[node name="stone_brick" type="StaticBody2D" unique_id=1716146588 groups=["Obstacle"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=214272384]
+texture = ExtResource("1_03bv8")
+region_enabled = true
+region_rect = Rect2(192, 64, 64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1061221057]
+shape = SubResource("RectangleShape2D_m4fnj")

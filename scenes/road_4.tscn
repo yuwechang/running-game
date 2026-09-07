@@ -1,0 +1,414 @@
+[gd_scene format=4 uid="uid://bxkwwe5bgj5cp"]
+
+[ext_resource type="PackedScene" uid="uid://d35uw08ivskxc" path="res://scenes/road_tmpl.tscn" id="1_abaru"]
+[ext_resource type="PackedScene" uid="uid://dn66wnugcvyav" path="res://scenes/coin_l.tscn" id="2_esd7e"]
+[ext_resource type="PackedScene" uid="uid://j6go2ck3v4sd" path="res://scenes/coin_s.tscn" id="3_loj4o"]
+[ext_resource type="PackedScene" uid="uid://3b2tylajioje" path="res://scenes/brick.tscn" id="4_loj4o"]
+[ext_resource type="PackedScene" uid="uid://chnmacroniwn6" path="res://scenes/stone.tscn" id="5_umbyo"]
+[ext_resource type="PackedScene" uid="uid://dw2cpniqymsde" path="res://scenes/stone_brick.tscn" id="6_han5m"]
+
+[node name="road" unique_id=2058137581 instance=ExtResource("1_abaru")]
+
+[node name="bg" parent="." index="0" unique_id=42143331]
+tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAABAAAAAgAAAAAAAAACAAAAAgAAAAAAAAADAAAAAgAAAAAAAAAAAAEAAgAAAAEAAAABAAEAAgAAAAEAAAACAAEAAgAAAAEAAAADAAEAAgAAAAEAAAAAAAIAAgAAAAEAAAABAAIAAgAAAAEAAAACAAIAAgAAAAEAAAADAAIAAgAAAAEAAAAEAAAAAgAAAAAAAAAEAAEAAgAAAAEAAAAEAAIAAgAAAAEAAAD//wAAAgAAAAAAAAD//wEAAgAAAAEAAAD//wIAAgAAAAEAAAAmAP7/AQAJAAEAAAALAPv/AQAFAAEAAAA=")
+
+[node name="main" parent="." index="1" unique_id=1652917525]
+tile_map_data = PackedByteArray("AAAVAAEAAAAEAAIAAAAVAAAAAAAEAAEAAAAUAAEAAAAEAAIAAAAUAAAAAAAEAAEAAAATAAEAAAAEAAIAAAATAAAAAAAEAAEAAAASAAEAAAAEAAIAAAASAAAAAAAEAAEAAAARAAEAAAAEAAIAAAARAAAAAAAEAAEAAAAQAAEAAAAEAAIAAAAQAAAAAAAEAAEAAAAPAAEAAAAEAAIAAAAPAAAAAAAEAAEAAAAOAAEAAAAEAAIAAAAOAAAAAAAEAAEAAAANAAEAAAAEAAIAAAANAAAAAAAFAAMAAAAMAAEAAAAEAAIAAAAMAAAAAAAEAAIAAAALAAEAAAAEAAIAAAALAAAAAAAEAAIAAAAKAAEAAAAEAAIAAAAKAAAAAAAEAAIAAAAJAAEAAAAEAAIAAAAJAAAAAAADAAMAAAAIAAEAAAAEAAIAAAAIAAAAAAAEAAEAAAAHAAEAAAAEAAIAAAAHAAAAAAAEAAEAAAAGAAEAAAAEAAIAAAAGAAAAAAAEAAEAAAAFAAEAAAAEAAIAAAAFAAAAAAAEAAEAAAAFAAIAAAAEAAYAAAAGAAIAAAAEAAYAAAAHAAIAAAAEAAYAAAAIAAIAAAAEAAYAAAAJAAIAAAAEAAYAAAAKAAIAAAAEAAYAAAALAAIAAAAEAAYAAAAMAAIAAAAEAAYAAAANAAIAAAAEAAYAAAAOAAIAAAAEAAYAAAAPAAIAAAAEAAYAAAAQAAIAAAAEAAYAAAARAAIAAAAEAAYAAAASAAIAAAAEAAYAAAATAAIAAAAEAAYAAAAUAAIAAAAEAAYAAAAVAAIAAAAEAAYAAAAWAAIAAAAEAAYAAAAXAAIAAAAEAAYAAAAYAAIAAAAEAAYAAAAZAAIAAAAEAAYAAAAaAAIAAAAEAAYAAAAaAAEAAAAEAAIAAAAaAAAAAAAEAAEAAAAZAAAAAAAEAAEAAAAYAAAAAAAEAAEAAAAXAAAAAAAEAAEAAAAWAAAAAAAEAAEAAAAWAAEAAAAEAAIAAAAXAAEAAAAEAAIAAAAYAAEAAAAEAAIAAAAZAAEAAAAEAAIAAAAEAAIAAAADAAYAAAAEAAEAAAADAAIAAAAEAAAAAAADAAEAAAANAP//AAAFAAIAAAANAP7/AAAFAAIAAAANAP3/AAAFAAEAAAAMAP//AAAEAAIAAAAMAP7/AAAEAAIAAAAMAP3/AAAEAAEAAAALAP//AAAEAAIAAAALAP7/AAAEAAIAAAALAP3/AAAEAAEAAAAKAP//AAAEAAIAAAAKAP7/AAAEAAIAAAAKAP3/AAAEAAEAAAAJAP//AAADAAIAAAAJAP7/AAADAAIAAAAJAP3/AAADAAEAAAAnAAIAAAAFAAYAAAAnAAEAAAAFAAIAAAAnAAAAAAAFAAEAAAAmAAIAAAAEAAYAAAAmAAEAAAAEAAIAAAAmAAAAAAAEAAEAAAAlAAIAAAAEAAYAAAAlAAEAAAAEAAIAAAAlAAAAAAAEAAEAAAAkAAIAAAAEAAYAAAAkAAEAAAAEAAIAAAAkAAAAAAAEAAEAAAAjAAIAAAAEAAYAAAAjAAEAAAAEAAIAAAAjAAAAAAAEAAEAAAAiAAIAAAAEAAYAAAAiAAEAAAAEAAIAAAAiAAAAAAAEAAEAAAAhAAIAAAAEAAYAAAAhAAEAAAAEAAIAAAAhAAAAAAAEAAEAAAAgAAIAAAAEAAYAAAAgAAEAAAAEAAIAAAAgAAAAAAAEAAEAAAAfAAIAAAAEAAYAAAAfAAEAAAAEAAIAAAAfAAAAAAAEAAEAAAAeAAIAAAAEAAYAAAAeAAEAAAAEAAIAAAAeAAAAAAAEAAEAAAAdAAIAAAAEAAYAAAAdAAEAAAAEAAIAAAAdAAAAAAAEAAEAAAAcAAIAAAAEAAYAAAAcAAEAAAAEAAIAAAAcAAAAAAAEAAEAAAAbAAIAAAAEAAYAAAAbAAEAAAAEAAIAAAAbAAAAAAAEAAEAAAA=")
+
+[node name="fg" parent="." index="2" unique_id=872363585]
+tile_map_data = PackedByteArray("AAAJAPz/AQAPAAIAAAANAPz/AQARAAIAAAAKAPz/AQAQAAIAAAALAPz/AQAQAAIAAAAMAPz/AQAQAAIAAAA=")
+
+[node name="stone" parent="fg" index="0" unique_id=1716146588 instance=ExtResource("5_umbyo")]
+position = Vector2(544, -96)
+metadata/_scene_painted = true
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3" unique_id=1394521921]
+position = Vector2(2560, 0)
+
+[node name="coin_l" parent="props" parent_id_path=PackedInt32Array(160377296) index="0" unique_id=1839869776 instance=ExtResource("2_esd7e")]
+position = Vector2(608, -224)
+metadata/_scene_painted = true
+
+[node name="coin_l2" parent="props" parent_id_path=PackedInt32Array(160377296) index="1" unique_id=1536472353 instance=ExtResource("2_esd7e")]
+position = Vector2(672, -224)
+metadata/_scene_painted = true
+
+[node name="coin_l3" parent="props" parent_id_path=PackedInt32Array(160377296) index="2" unique_id=56213041 instance=ExtResource("2_esd7e")]
+position = Vector2(736, -224)
+metadata/_scene_painted = true
+
+[node name="coin_l4" parent="props" parent_id_path=PackedInt32Array(160377296) index="3" unique_id=2027517035 instance=ExtResource("2_esd7e")]
+position = Vector2(800, -224)
+metadata/_scene_painted = true
+
+[node name="coin_l5" parent="props" parent_id_path=PackedInt32Array(160377296) index="4" unique_id=271827168 instance=ExtResource("2_esd7e")]
+position = Vector2(864, -224)
+metadata/_scene_painted = true
+
+[node name="coin_s7" parent="props" parent_id_path=PackedInt32Array(160377296) index="5" unique_id=1912354210 instance=ExtResource("3_loj4o")]
+position = Vector2(368, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s8" parent="props" parent_id_path=PackedInt32Array(160377296) index="6" unique_id=1522434918 instance=ExtResource("3_loj4o")]
+position = Vector2(336, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s9" parent="props" parent_id_path=PackedInt32Array(160377296) index="7" unique_id=1495478026 instance=ExtResource("3_loj4o")]
+position = Vector2(304, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s10" parent="props" parent_id_path=PackedInt32Array(160377296) index="8" unique_id=1415175359 instance=ExtResource("3_loj4o")]
+position = Vector2(272, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s17" parent="props" parent_id_path=PackedInt32Array(160377296) index="9" unique_id=960673797 instance=ExtResource("3_loj4o")]
+position = Vector2(1104, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s18" parent="props" parent_id_path=PackedInt32Array(160377296) index="10" unique_id=1442925483 instance=ExtResource("3_loj4o")]
+position = Vector2(1136, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s19" parent="props" parent_id_path=PackedInt32Array(160377296) index="11" unique_id=1285996833 instance=ExtResource("3_loj4o")]
+position = Vector2(1168, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s25" parent="props" parent_id_path=PackedInt32Array(160377296) index="12" unique_id=1442612382 instance=ExtResource("3_loj4o")]
+position = Vector2(1360, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s31" parent="props" parent_id_path=PackedInt32Array(160377296) index="13" unique_id=2025780081 instance=ExtResource("3_loj4o")]
+position = Vector2(1552, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s32" parent="props" parent_id_path=PackedInt32Array(160377296) index="14" unique_id=122318480 instance=ExtResource("3_loj4o")]
+position = Vector2(1584, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s33" parent="props" parent_id_path=PackedInt32Array(160377296) index="15" unique_id=1024532949 instance=ExtResource("3_loj4o")]
+position = Vector2(1616, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s34" parent="props" parent_id_path=PackedInt32Array(160377296) index="16" unique_id=1892555987 instance=ExtResource("3_loj4o")]
+position = Vector2(1648, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s35" parent="props" parent_id_path=PackedInt32Array(160377296) index="17" unique_id=1928879107 instance=ExtResource("3_loj4o")]
+position = Vector2(1680, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s22" parent="props" parent_id_path=PackedInt32Array(160377296) index="18" unique_id=546154708 instance=ExtResource("3_loj4o")]
+position = Vector2(1264, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s23" parent="props" parent_id_path=PackedInt32Array(160377296) index="19" unique_id=775316136 instance=ExtResource("3_loj4o")]
+position = Vector2(1296, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s24" parent="props" parent_id_path=PackedInt32Array(160377296) index="20" unique_id=1630446756 instance=ExtResource("3_loj4o")]
+position = Vector2(1328, -48)
+metadata/_scene_painted = true
+
+[node name="brick" parent="props" parent_id_path=PackedInt32Array(160377296) index="21" unique_id=1237610339 instance=ExtResource("4_loj4o")]
+position = Vector2(1216, -128)
+metadata/_scene_painted = true
+
+[node name="brick" parent="props/brick" index="2" unique_id=1400377942 instance=ExtResource("4_loj4o")]
+position = Vector2(-672, 96)
+metadata/_scene_painted = true
+
+[node name="coin_s26" parent="props" parent_id_path=PackedInt32Array(160377296) index="22" unique_id=198972659 instance=ExtResource("3_loj4o")]
+position = Vector2(1392, -48)
+metadata/_scene_painted = true
+
+[node name="stone" parent="props" parent_id_path=PackedInt32Array(160377296) index="23" unique_id=1134249450 instance=ExtResource("5_umbyo")]
+position = Vector2(1472, -32)
+metadata/_scene_painted = true
+
+[node name="brick2" parent="props" parent_id_path=PackedInt32Array(160377296) index="24" unique_id=177420248 instance=ExtResource("4_loj4o")]
+position = Vector2(1728, -128)
+metadata/_scene_painted = true
+
+[node name="brick3" parent="props" parent_id_path=PackedInt32Array(160377296) index="25" unique_id=2021009918 instance=ExtResource("4_loj4o")]
+position = Vector2(1792, -128)
+metadata/_scene_painted = true
+
+[node name="brick4" parent="props" parent_id_path=PackedInt32Array(160377296) index="26" unique_id=1301824450 instance=ExtResource("4_loj4o")]
+position = Vector2(1856, -128)
+metadata/_scene_painted = true
+
+[node name="brick5" parent="props" parent_id_path=PackedInt32Array(160377296) index="27" unique_id=1232457764 instance=ExtResource("4_loj4o")]
+position = Vector2(1920, -128)
+metadata/_scene_painted = true
+
+[node name="brick6" parent="props" parent_id_path=PackedInt32Array(160377296) index="28" unique_id=1246266031 instance=ExtResource("4_loj4o")]
+position = Vector2(1984, -128)
+metadata/_scene_painted = true
+
+[node name="coin_s46" parent="props" parent_id_path=PackedInt32Array(160377296) index="29" unique_id=148905325 instance=ExtResource("3_loj4o")]
+position = Vector2(2032, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s47" parent="props" parent_id_path=PackedInt32Array(160377296) index="30" unique_id=549853359 instance=ExtResource("3_loj4o")]
+position = Vector2(2064, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s48" parent="props" parent_id_path=PackedInt32Array(160377296) index="31" unique_id=169993797 instance=ExtResource("3_loj4o")]
+position = Vector2(2096, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s49" parent="props" parent_id_path=PackedInt32Array(160377296) index="32" unique_id=909634421 instance=ExtResource("3_loj4o")]
+position = Vector2(2128, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s50" parent="props" parent_id_path=PackedInt32Array(160377296) index="33" unique_id=1920584741 instance=ExtResource("3_loj4o")]
+position = Vector2(2160, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s55" parent="props" parent_id_path=PackedInt32Array(160377296) index="34" unique_id=922153253 instance=ExtResource("3_loj4o")]
+position = Vector2(2320, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s56" parent="props" parent_id_path=PackedInt32Array(160377296) index="35" unique_id=1243094507 instance=ExtResource("3_loj4o")]
+position = Vector2(2352, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s57" parent="props" parent_id_path=PackedInt32Array(160377296) index="36" unique_id=597679426 instance=ExtResource("3_loj4o")]
+position = Vector2(2384, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s58" parent="props" parent_id_path=PackedInt32Array(160377296) index="37" unique_id=648867778 instance=ExtResource("3_loj4o")]
+position = Vector2(2416, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s59" parent="props" parent_id_path=PackedInt32Array(160377296) index="38" unique_id=742038391 instance=ExtResource("3_loj4o")]
+position = Vector2(2448, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s60" parent="props" parent_id_path=PackedInt32Array(160377296) index="39" unique_id=836032240 instance=ExtResource("3_loj4o")]
+position = Vector2(2480, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s61" parent="props" parent_id_path=PackedInt32Array(160377296) index="40" unique_id=424775113 instance=ExtResource("3_loj4o")]
+position = Vector2(2512, -48)
+metadata/_scene_painted = true
+
+[node name="coin_s62" parent="props" parent_id_path=PackedInt32Array(160377296) index="41" unique_id=1542815201 instance=ExtResource("3_loj4o")]
+position = Vector2(2544, -48)
+metadata/_scene_painted = true
+
+[node name="stone2" parent="props" parent_id_path=PackedInt32Array(160377296) index="42" unique_id=1938940741 instance=ExtResource("5_umbyo")]
+position = Vector2(2240, -32)
+metadata/_scene_painted = true
+
+[node name="stone_brick" parent="props" parent_id_path=PackedInt32Array(160377296) index="43" unique_id=483796236 instance=ExtResource("6_han5m")]
+position = Vector2(544, -32)
+metadata/_scene_painted = true
+
+[node name="stone_brick2" parent="props" parent_id_path=PackedInt32Array(160377296) index="44" unique_id=1876979738 instance=ExtResource("6_han5m")]
+position = Vector2(928, -32)
+metadata/_scene_painted = true
+
+[node name="stone3" parent="props" parent_id_path=PackedInt32Array(160377296) index="45" unique_id=112018446 instance=ExtResource("5_umbyo")]
+position = Vector2(928, -96)
+metadata/_scene_painted = true
+
+[node name="coin_s" parent="props" parent_id_path=PackedInt32Array(160377296) index="46" unique_id=203678021 instance=ExtResource("3_loj4o")]
+position = Vector2(558.4116, -239.84804)
+metadata/_scene_painted = true
+
+[node name="coin_s2" parent="props" parent_id_path=PackedInt32Array(160377296) index="47" unique_id=1372222131 instance=ExtResource("3_loj4o")]
+position = Vector2(528, -208)
+metadata/_scene_painted = true
+
+[node name="coin_s4" parent="props" parent_id_path=PackedInt32Array(160377296) index="48" unique_id=1936374852 instance=ExtResource("3_loj4o")]
+position = Vector2(496, -176)
+metadata/_scene_painted = true
+
+[node name="coin_s20" parent="props" parent_id_path=PackedInt32Array(160377296) index="49" unique_id=1410289249 instance=ExtResource("3_loj4o")]
+position = Vector2(464, -144)
+metadata/_scene_painted = true
+
+[node name="coin_s29" parent="props" parent_id_path=PackedInt32Array(160377296) index="50" unique_id=766718683 instance=ExtResource("3_loj4o")]
+position = Vector2(432, -112)
+metadata/_scene_painted = true
+
+[node name="coin_s36" parent="props" parent_id_path=PackedInt32Array(160377296) index="51" unique_id=1488305334 instance=ExtResource("3_loj4o")]
+position = Vector2(400, -80)
+metadata/_scene_painted = true
+
+[node name="coin_s3" parent="props" parent_id_path=PackedInt32Array(160377296) index="52" unique_id=1825655773 instance=ExtResource("3_loj4o")]
+position = Vector2(912, -240)
+metadata/_scene_painted = true
+
+[node name="coin_s5" parent="props" parent_id_path=PackedInt32Array(160377296) index="53" unique_id=99528421 instance=ExtResource("3_loj4o")]
+position = Vector2(944, -208)
+metadata/_scene_painted = true
+
+[node name="coin_s11" parent="props" parent_id_path=PackedInt32Array(160377296) index="54" unique_id=160176134 instance=ExtResource("3_loj4o")]
+position = Vector2(976, -176)
+metadata/_scene_painted = true
+
+[node name="coin_s13" parent="props" parent_id_path=PackedInt32Array(160377296) index="55" unique_id=1073439638 instance=ExtResource("3_loj4o")]
+position = Vector2(1008, -144)
+metadata/_scene_painted = true
+
+[node name="coin_s14" parent="props" parent_id_path=PackedInt32Array(160377296) index="56" unique_id=1036625150 instance=ExtResource("3_loj4o")]
+position = Vector2(1040, -112)
+metadata/_scene_painted = true
+
+[node name="coin_s15" parent="props" parent_id_path=PackedInt32Array(160377296) index="57" unique_id=1497564856 instance=ExtResource("3_loj4o")]
+position = Vector2(1072, -80)
+metadata/_scene_painted = true
+
+[node name="coin_s16" parent="props" parent_id_path=PackedInt32Array(160377296) index="58" unique_id=300814573 instance=ExtResource("3_loj4o")]
+position = Vector2(592, -272)
+metadata/_scene_painted = true
+
+[node name="coin_s21" parent="props" parent_id_path=PackedInt32Array(160377296) index="59" unique_id=910891412 instance=ExtResource("3_loj4o")]
+position = Vector2(624, -272)
+metadata/_scene_painted = true
+
+[node name="coin_s27" parent="props" parent_id_path=PackedInt32Array(160377296) index="60" unique_id=584322193 instance=ExtResource("3_loj4o")]
+position = Vector2(656, -272)
+metadata/_scene_painted = true
+
+[node name="coin_s28" parent="props" parent_id_path=PackedInt32Array(160377296) index="61" unique_id=2106756481 instance=ExtResource("3_loj4o")]
+position = Vector2(688, -272)
+metadata/_scene_painted = true
+
+[node name="coin_s67" parent="props" parent_id_path=PackedInt32Array(160377296) index="62" unique_id=692763501 instance=ExtResource("3_loj4o")]
+position = Vector2(720, -272)
+metadata/_scene_painted = true
+
+[node name="coin_s68" parent="props" parent_id_path=PackedInt32Array(160377296) index="63" unique_id=1859816474 instance=ExtResource("3_loj4o")]
+position = Vector2(752, -272)
+metadata/_scene_painted = true
+
+[node name="coin_s69" parent="props" parent_id_path=PackedInt32Array(160377296) index="64" unique_id=1837635380 instance=ExtResource("3_loj4o")]
+position = Vector2(784, -272)
+metadata/_scene_painted = true
+
+[node name="coin_s70" parent="props" parent_id_path=PackedInt32Array(160377296) index="65" unique_id=1407702856 instance=ExtResource("3_loj4o")]
+position = Vector2(816, -272)
+metadata/_scene_painted = true
+
+[node name="coin_s71" parent="props" parent_id_path=PackedInt32Array(160377296) index="66" unique_id=1140157811 instance=ExtResource("3_loj4o")]
+position = Vector2(848, -272)
+metadata/_scene_painted = true
+
+[node name="coin_s72" parent="props" parent_id_path=PackedInt32Array(160377296) index="67" unique_id=104653033 instance=ExtResource("3_loj4o")]
+position = Vector2(880, -272)
+metadata/_scene_painted = true
+
+[node name="coin_s6" parent="props" parent_id_path=PackedInt32Array(160377296) index="68" unique_id=170828763 instance=ExtResource("3_loj4o")]
+position = Vector2(1424, -80)
+metadata/_scene_painted = true
+
+[node name="coin_s12" parent="props" parent_id_path=PackedInt32Array(160377296) index="69" unique_id=912148924 instance=ExtResource("3_loj4o")]
+position = Vector2(1520, -80)
+metadata/_scene_painted = true
+
+[node name="coin_s30" parent="props" parent_id_path=PackedInt32Array(160377296) index="70" unique_id=677756099 instance=ExtResource("3_loj4o")]
+position = Vector2(1200, -16)
+metadata/_scene_painted = true
+
+[node name="coin_s37" parent="props" parent_id_path=PackedInt32Array(160377296) index="71" unique_id=1563608652 instance=ExtResource("3_loj4o")]
+position = Vector2(1232, -16)
+metadata/_scene_painted = true
+
+[node name="coin_s52" parent="props" parent_id_path=PackedInt32Array(160377296) index="72" unique_id=657484085 instance=ExtResource("3_loj4o")]
+position = Vector2(1712, -16)
+metadata/_scene_painted = true
+
+[node name="coin_s66" parent="props" parent_id_path=PackedInt32Array(160377296) index="73" unique_id=871168472 instance=ExtResource("3_loj4o")]
+position = Vector2(1744, -16)
+metadata/_scene_painted = true
+
+[node name="coin_s73" parent="props" parent_id_path=PackedInt32Array(160377296) index="74" unique_id=556791031 instance=ExtResource("3_loj4o")]
+position = Vector2(1776, -16)
+metadata/_scene_painted = true
+
+[node name="coin_s74" parent="props" parent_id_path=PackedInt32Array(160377296) index="75" unique_id=78431793 instance=ExtResource("3_loj4o")]
+position = Vector2(1808, -16)
+metadata/_scene_painted = true
+
+[node name="coin_s75" parent="props" parent_id_path=PackedInt32Array(160377296) index="76" unique_id=983251387 instance=ExtResource("3_loj4o")]
+position = Vector2(1840, -16)
+metadata/_scene_painted = true
+
+[node name="coin_s76" parent="props" parent_id_path=PackedInt32Array(160377296) index="77" unique_id=1100582156 instance=ExtResource("3_loj4o")]
+position = Vector2(1872, -16)
+metadata/_scene_painted = true
+
+[node name="coin_s77" parent="props" parent_id_path=PackedInt32Array(160377296) index="78" unique_id=881173398 instance=ExtResource("3_loj4o")]
+position = Vector2(1904, -16)
+metadata/_scene_painted = true
+
+[node name="coin_s78" parent="props" parent_id_path=PackedInt32Array(160377296) index="79" unique_id=510079077 instance=ExtResource("3_loj4o")]
+position = Vector2(1936, -16)
+metadata/_scene_painted = true
+
+[node name="coin_s79" parent="props" parent_id_path=PackedInt32Array(160377296) index="80" unique_id=1372183070 instance=ExtResource("3_loj4o")]
+position = Vector2(1968, -16)
+metadata/_scene_painted = true
+
+[node name="coin_s80" parent="props" parent_id_path=PackedInt32Array(160377296) index="81" unique_id=1260471881 instance=ExtResource("3_loj4o")]
+position = Vector2(2000, -16)
+metadata/_scene_painted = true
+
+[node name="coin_s38" parent="props" parent_id_path=PackedInt32Array(160377296) index="82" unique_id=590441761 instance=ExtResource("3_loj4o")]
+position = Vector2(1456, -112)
+metadata/_scene_painted = true
+
+[node name="coin_s39" parent="props" parent_id_path=PackedInt32Array(160377296) index="83" unique_id=948058131 instance=ExtResource("3_loj4o")]
+position = Vector2(1488, -112)
+metadata/_scene_painted = true
+
+[node name="coin_s40" parent="props" parent_id_path=PackedInt32Array(160377296) index="84" unique_id=844741552 instance=ExtResource("3_loj4o")]
+position = Vector2(2192, -80)
+metadata/_scene_painted = true
+
+[node name="coin_s41" parent="props" parent_id_path=PackedInt32Array(160377296) index="85" unique_id=568740171 instance=ExtResource("3_loj4o")]
+position = Vector2(2288, -80)
+metadata/_scene_painted = true
+
+[node name="coin_s42" parent="props" parent_id_path=PackedInt32Array(160377296) index="86" unique_id=2015441827 instance=ExtResource("3_loj4o")]
+position = Vector2(2224, -112)
+metadata/_scene_painted = true
+
+[node name="coin_s43" parent="props" parent_id_path=PackedInt32Array(160377296) index="87" unique_id=1385676957 instance=ExtResource("3_loj4o")]
+position = Vector2(2256, -112)
+metadata/_scene_painted = true
+
+[node name="coin_l6" parent="props" parent_id_path=PackedInt32Array(160377296) index="88" unique_id=686847059 instance=ExtResource("2_esd7e")]
+position = Vector2(2240, -160)
+metadata/_scene_painted = true
+
+[node name="coin_l7" parent="props" parent_id_path=PackedInt32Array(160377296) index="89" unique_id=2014030689 instance=ExtResource("2_esd7e")]
+position = Vector2(1472, -160)
+metadata/_scene_painted = true
+
+[node name="coin_l8" parent="props" parent_id_path=PackedInt32Array(160377296) index="90" unique_id=1172616681 instance=ExtResource("2_esd7e")]
+position = Vector2(1728, -64)
+metadata/_scene_painted = true
+
+[node name="coin_l9" parent="props" parent_id_path=PackedInt32Array(160377296) index="91" unique_id=1060623352 instance=ExtResource("2_esd7e")]
+position = Vector2(1792, -64)
+metadata/_scene_painted = true
+
+[node name="coin_l10" parent="props" parent_id_path=PackedInt32Array(160377296) index="92" unique_id=134800059 instance=ExtResource("2_esd7e")]
+position = Vector2(1856, -64)
+metadata/_scene_painted = true
+
+[node name="coin_l11" parent="props" parent_id_path=PackedInt32Array(160377296) index="93" unique_id=1210043659 instance=ExtResource("2_esd7e")]
+position = Vector2(1920, -64)
+metadata/_scene_painted = true
+
+[node name="coin_l12" parent="props" parent_id_path=PackedInt32Array(160377296) index="94" unique_id=421493709 instance=ExtResource("2_esd7e")]
+position = Vector2(1984, -64)
+metadata/_scene_painted = true
+
+[node name="coin_l13" parent="props" parent_id_path=PackedInt32Array(160377296) index="95" unique_id=1760894598 instance=ExtResource("2_esd7e")]
+position = Vector2(1216, -64)
+metadata/_scene_painted = true
