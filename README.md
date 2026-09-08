@@ -39,12 +39,14 @@ https://www.youtube.com/playlist?list=PLSPF9D5xJog8
 👉 itch.io  
 https://yuwechang.itch.io/potato-runner-demo
 
-📺 阿右薯叔 GameDev
+## 📺 阿右薯叔 GameDev
+
 🎮 做遊戲，也教你怎麼做。
 
 主要分享 Godot、Unity 遊戲開發教學，從零基礎入門，到遊戲開發背後的技術與原理。
 
-YouTube： https://www.youtube.com/@yuwechang
+YouTube：
+https://www.youtube.com/@yuwechang
 
 ## 📄 License
 
