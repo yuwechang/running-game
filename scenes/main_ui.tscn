@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bdyp7n6admauv" path="res://gdscripts/main_ui.gd" id="1_513t2"]
 [ext_resource type="FontFile" uid="uid://c8t6hpeks8e2u" path="res://fonts/Cubic_11.ttf" id="2_e6fyy"]
 [ext_resource type="Script" uid="uid://bltd5c5cojapq" path="res://gdscripts/panel_ui.gd" id="3_e6fyy"]
+[ext_resource type="Texture2D" uid="uid://bj2vab3yoml8s" path="res://sprites/button.png" id="4_j6a7c"]
 
 [sub_resource type="DPITexture" id="DPITexture_513t2"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".75\"/></svg>
@@ -53,6 +54,14 @@ base_scale = 2.5
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><g fill-opacity=\".5\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" rx=\"7\"/><circle cx=\"8\" cy=\"8\" r=\"5\" fill=\"#fff\"/></g></svg>
 "
 base_scale = 2.5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0vh62"]
+texture = ExtResource("4_j6a7c")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(10, 10, 236, 108)
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1696235956]
 process_mode = 3
@@ -202,6 +211,38 @@ offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "重新開始"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1697452408]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="SlideButton" type="Button" parent="Control/MarginContainer" unique_id=678981627]
+self_modulate = Color(1, 1, 1, 0.5)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_0vh62")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0vh62")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0vh62")
+text = "滑"
+
+[node name="JumpButton" type="Button" parent="Control/MarginContainer" unique_id=235891967]
+self_modulate = Color(1, 1, 1, 0.5)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_0vh62")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0vh62")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0vh62")
+text = "跳"
 
 [connection signal="pressed" from="Control/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="visibility_changed" from="Control/PanelContainer" to="Control/PanelContainer" method="_on_visibility_changed"]
