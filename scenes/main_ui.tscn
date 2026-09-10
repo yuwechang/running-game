@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://c8t6hpeks8e2u" path="res://fonts/Cubic_11.ttf" id="2_e6fyy"]
 [ext_resource type="Script" uid="uid://bltd5c5cojapq" path="res://gdscripts/panel_ui.gd" id="3_e6fyy"]
 [ext_resource type="Texture2D" uid="uid://bj2vab3yoml8s" path="res://sprites/button.png" id="4_j6a7c"]
+[ext_resource type="Script" uid="uid://b3cj87av5xts7" path="res://gdscripts/action_button.gd" id="5_scoti"]
 
 [sub_resource type="DPITexture" id="DPITexture_513t2"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".75\"/></svg>
@@ -233,6 +234,8 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_0vh62")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0vh62")
 theme_override_styles/hover = SubResource("StyleBoxTexture_0vh62")
 text = "滑"
+script = ExtResource("5_scoti")
+action = &"slide"
 
 [node name="JumpButton" type="Button" parent="Control/MarginContainer" unique_id=235891967]
 self_modulate = Color(1, 1, 1, 0.5)
@@ -243,6 +246,8 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_0vh62")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0vh62")
 theme_override_styles/hover = SubResource("StyleBoxTexture_0vh62")
 text = "跳"
+script = ExtResource("5_scoti")
+action = &"jump"
 
 [connection signal="pressed" from="Control/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="visibility_changed" from="Control/PanelContainer" to="Control/PanelContainer" method="_on_visibility_changed"]
