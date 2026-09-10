@@ -1420,8 +1420,8 @@ internal_vertex_count = 9
 
 [node name="right_arm" type="Sprite2D" parent="player/body" unique_id=1848497730]
 z_index = 2
-position = Vector2(1.5167847, 1.1669769)
-rotation = -1.0852187
+position = Vector2(1.3275146, -0.7249756)
+rotation = 0.89096236
 scale = Vector2(0.99999505, 0.99999505)
 texture = ExtResource("2_kddj0")
 offset = Vector2(1, 23)
@@ -1430,8 +1430,8 @@ region_rect = Rect2(79, 8, 23, 62)
 
 [node name="left_arm" type="Sprite2D" parent="player/body" unique_id=2045818278]
 z_index = -2
-position = Vector2(1.5167847, 1.1669769)
-rotation = 0.713513
+position = Vector2(1.3275146, -0.7249756)
+rotation = -1.262442
 scale = Vector2(0.9999954, 0.9999954)
 texture = ExtResource("2_kddj0")
 offset = Vector2(1, 23)
@@ -1440,9 +1440,9 @@ region_rect = Rect2(104, 8, 22, 62)
 
 [node name="right_leg" type="Sprite2D" parent="player/body" unique_id=1288813184]
 z_index = 1
-position = Vector2(2.5167847, 28.166977)
-rotation = 1.0856673
-scale = Vector2(0.9999946, 0.9999946)
+position = Vector2(2.3275757, 26.27504)
+rotation = -0.79292846
+scale = Vector2(0.9999945, 0.9999945)
 texture = ExtResource("2_kddj0")
 offset = Vector2(9, 16)
 region_enabled = true
@@ -1450,9 +1450,9 @@ region_rect = Rect2(84, 80, 38, 32)
 
 [node name="left_leg" type="Sprite2D" parent="player/body" unique_id=199281392]
 z_index = -1
-position = Vector2(2.5167847, 28.166977)
-rotation = -0.6246603
-scale = Vector2(0.99999595, 0.99999595)
+position = Vector2(2.3275757, 26.27504)
+rotation = 1.2550294
+scale = Vector2(0.9999959, 0.9999959)
 texture = ExtResource("2_kddj0")
 offset = Vector2(9, 16)
 region_enabled = true
@@ -1509,7 +1509,7 @@ remote_path = NodePath("../../../../body/right_leg")
 
 [node name="left_leg" type="Bone2D" parent="player/Skeleton2D/pelvis" unique_id=1137669325]
 position = Vector2(0, 2)
-scale = Vector2(0.999996, 0.999996)
+scale = Vector2(0.99999595, 0.99999595)
 rest = Transform2D(1, 0, 0, 1, 0, 2)
 auto_calculate_length_and_angle = false
 length = 24.93
@@ -1555,8 +1555,8 @@ player = NodePath("../player")
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D" unique_id=1029622078]
 z_index = -100
-position = Vector2(-64.000015, 0)
-scale = Vector2(1.2222223, 0.92307705)
+position = Vector2(-31.5, 0)
+scale = Vector2(1.6970487, 0.92307705)
 texture = ExtResource("4_rlvb3")
 
 [node name="road" type="Node2D" parent="." unique_id=505774825]
